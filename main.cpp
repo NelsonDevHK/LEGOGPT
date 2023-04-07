@@ -262,13 +262,13 @@ int main()
 {
     // You are suggested to comment out the tests you haven't implemented and test the cases one by one.
     test1();
-    test2();
-    test3();
-    test4();
-    test5();
-    test6();
-    test7();
-    test8();
+    // test2();
+    // test3();
+    // test4();
+    // test5();
+    // test6();
+    // test7();
+    // test8();
     cout << "End of all tests!" << endl;
     return 0;
 }

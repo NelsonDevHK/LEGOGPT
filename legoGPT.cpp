@@ -67,3 +67,19 @@ void LegoGPT::chat(string topic, string question) const
     cout << this->handlerMap.find(topic)->answer(question) << endl;
     return;
 }
+
+// Implement
+
+LegoGPT::~LegoGPT(){
+
+}
+void LegoGPT::LoadFilterModule(FilterModule &input){
+
+}
+void LegoGPT::LoadHandlerModule(HandlerModule &input){
+
+}
+
+void LegoGPT::clear(){
+
+}

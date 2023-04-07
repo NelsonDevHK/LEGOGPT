@@ -12,12 +12,30 @@ void HandlerModule::print() const
 }
 
 //Todo 3
-// void HandlerModule::trainData(const string &question, const string &answer)
-// {
-//     data.insert(question, answer);
-// }
+void HandlerModule::trainData(const string &question, const string &answer)
+{
+    data.insert(question, answer);
+}
 
-// string HandlerModule::answer(const string &question) const
-// {
+string HandlerModule::answer(const string &question) const
+{
  
-// }
+}
+
+// HandlerMap function implement
+HandlerMap::HandlerMap(){
+    
+}
+HandlerMap::~HandlerMap(){
+    
+}
+void HandlerMap::insert(string key, HandlerModule *value){
+
+}
+HandlerModule* HandlerMap::find(const string &key) const{
+
+}
+string HandlerMap:: getNames(int index) const{
+
+}
+void HandlerMap::clear(){}
