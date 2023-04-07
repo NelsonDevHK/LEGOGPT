@@ -32,7 +32,8 @@ public:
     FilterModule(const string &name, const FilterType type) : Module(name), type(type){};
     //-------You need to define destructor and print for HandlerModule-------
     //-------You are only supposed to modify code below-------
-
+    virtual ~FilterModule();
+    virtual void print() const;
     // helper information: std::cout << "Module name = " << m_name << ", this is a filter, filter type = " << getFilterType(type) << std::endl;
     //-------You are only supposed to modify code above-------
 

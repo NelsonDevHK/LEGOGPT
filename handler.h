@@ -15,7 +15,8 @@ public:
     };
     //-------You need to define destructor and print for HandlerModule-------
     //-------You are only supposed to modify code below-------
-
+    virtual ~HandlerModule();
+    virtual void print() const;
     // helper information: std::cout << "Module name = " << m_name << ", this is a Handler, can handle topic = " << topic << std::endl;
     //-------You are only supposed to modify code above-------
     string getTopic() const { return topic; }
