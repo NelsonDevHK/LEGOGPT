@@ -262,7 +262,7 @@ int main()
 {
     // You are suggested to comment out the tests you haven't implemented and test the cases one by one.
     test1();
-    // test2();
+    test2();
     // test3();
     // test4();
     // test5();

@@ -21,6 +21,24 @@ string FilterModule::translatePostData(string question) const{
 }
 
 //Class FilterArray function
-FilterModule* FilterArray::get(int index) const{
-    
+void FilterArray::insert(FilterModule *input)
+{
+    FilterModule **newArray = new FilterModule *[arraySize + 1];
+    for (int i = 0; i < arraySize; i++)
+    {
+        newArray[i] = array[i];
+    }
+    newArray[arraySize] = input;
+    delete[] array;
+    array = newArray;
+    arraySize++;
+}
+
+FilterModule *FilterArray::get(int index) const
+{
+    if (index >= 0 && index < arraySize)
+    {
+        return array[index];
+    }
+    return nullptr;
 }
