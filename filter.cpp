@@ -7,17 +7,20 @@ void FilterModule::print() const{
     std::cout << "Module name = " << m_name << ", this is a filter, filter type = " << getType() << std::endl;
 }
 
-void FilterModule::trainPreData(const string &source, const string &target){
-
+void FilterModule::trainPreData(const string &source, const string &target) {
+  preData.insert(source, target);
 }
-void FilterModule::trainPostData(const string &source, const string &target){
 
+void FilterModule::trainPostData(const string &source, const string &target) {
+  postData.insert(source, target);
 }
-string FilterModule::translatePreData(string question) const{
 
+string FilterModule::translatePreData(string question) const {
+  return preData.find(question);
 }
-string FilterModule::translatePostData(string question) const{
 
+string FilterModule::translatePostData(string answer) const {
+  return postData.find(answer);
 }
 
 //Class FilterArray function
