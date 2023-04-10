@@ -5,7 +5,7 @@ FilterModule::~FilterModule(){
   this->postData.~DataMap();
 }
 void FilterModule::print() const{
-    std::cout << "Module name = " << m_name << ", this is a filter, filter type = " << getType() << std::endl;
+    std::cout << "Module name = " << m_name << ", this is a filter, filter type = " << getFilterType(type) << std::endl;
 }
 
 void FilterModule::trainPreData(const string &source, const string &target) {
