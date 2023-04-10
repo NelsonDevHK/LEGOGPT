@@ -71,13 +71,15 @@ void LegoGPT::chat(string topic, string question) const
 // Implement
 
 LegoGPT::~LegoGPT(){
-
+    clear();
 }
 void LegoGPT::LoadFilterModule(FilterModule &input){
-
+    FilterModule* temp = new FilterModule(input.getName(),input.getType());
+    filterArray.insert(temp);
 }
 void LegoGPT::LoadHandlerModule(HandlerModule &input){
-
+    HandlerModule* temp = new HandlerModule(input.getName(),input.getTopic());
+    handlerMap.insert(temp->getName(),temp);
 }
 
 void LegoGPT::clear(){
