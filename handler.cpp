@@ -2,8 +2,8 @@
 //Todo 2
 HandlerModule::~HandlerModule()
 {
-    delete this->languageFilter;
-    delete this->toneFilter;
+    this->toneFilter = nullptr;
+    this->languageFilter = nullptr;
 }
 
 void HandlerModule::print() const
@@ -22,7 +22,7 @@ string HandlerModule::answer(const string &question) const {
     string filteredQuestion = question;
     if (languageFilter != nullptr){
         filteredQuestion = languageFilter->translatePreData(filteredQuestion);
-        if(filteredQuestion ==  "")
+        if(filteredQuestion ==  "")//[Fix]
             filteredQuestion = question;
     }
 
@@ -30,7 +30,7 @@ string HandlerModule::answer(const string &question) const {
     string tonedQuestion = filteredQuestion;
     if (toneFilter != nullptr){ // [BUG]
         tonedQuestion = toneFilter->translatePreData(filteredQuestion);
-        if(tonedQuestion ==  "")
+        if(tonedQuestion ==  "") //[Fix]
             tonedQuestion = filteredQuestion;
     }
 
@@ -43,7 +43,7 @@ string HandlerModule::answer(const string &question) const {
     string tonedAnswer = answer;
     if (toneFilter != nullptr){
         tonedAnswer = toneFilter->translatePostData(answer);
-            if(tonedAnswer ==  "")
+            if(tonedAnswer ==  "")//[Fix]
                 tonedAnswer = answer;
     }
 
@@ -51,7 +51,7 @@ string HandlerModule::answer(const string &question) const {
     string filteredAnswer = tonedAnswer;
     if (languageFilter != nullptr){
         filteredAnswer = languageFilter->translatePostData(tonedAnswer); // [BUG]
-            if(filteredAnswer ==  "")
+            if(filteredAnswer ==  "")//[Fix]
                 filteredAnswer = tonedAnswer;
     }
     return filteredAnswer;

@@ -1,7 +1,8 @@
 #include "filter.h"
 
 FilterModule::~FilterModule(){
-
+  this->preData.~DataMap();
+  this->postData.~DataMap();
 }
 void FilterModule::print() const{
     std::cout << "Module name = " << m_name << ", this is a filter, filter type = " << getType() << std::endl;

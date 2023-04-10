@@ -24,7 +24,10 @@ public:
     string answer(const string &question) const;
     void setLanguageFilter(FilterModule *input) { this->languageFilter = input; }
     void setToneFilter(FilterModule *input) { this->toneFilter = input; }
-
+    void inline help(FilterModule *input){
+        this->toneFilter = input;
+        this->toneFilter->print();
+    }
 protected:
     string inneranswer(const string &question) const;
 
