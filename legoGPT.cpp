@@ -74,14 +74,13 @@ LegoGPT::~LegoGPT(){
     clear();
 }
 void LegoGPT::LoadFilterModule(FilterModule &input){
-    FilterModule* temp = new FilterModule(input.getName(),input.getType());
-    filterArray.insert(temp);
+    filterArray.insert(&input);
 }
 void LegoGPT::LoadHandlerModule(HandlerModule &input){
-    HandlerModule* temp = new HandlerModule(input.getName(),input.getTopic());
-    handlerMap.insert(temp->getName(),temp);
+    //handlerMap.insert(input.getTopic(),&input);
 }
 
 void LegoGPT::clear(){
-
+    handlerMap.clear();
+    filterArray.clear();
 }

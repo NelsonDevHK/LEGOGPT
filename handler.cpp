@@ -44,7 +44,6 @@ string HandlerModule::answer(const string &question) const {
     string filteredAnswer = tonedAnswer;
     if (languageFilter != nullptr)
         filteredAnswer = languageFilter->translatePostData(tonedAnswer);
-
     return filteredAnswer;
 }
 
@@ -96,7 +95,7 @@ HandlerModule *HandlerMap::find(const string &key) const
     for (int i = 0; i < arraySize; i++)
     {
         if (names[i] == key)
-        {
+        { // CHECKED
             return handlerModules[i];
         }
     }
