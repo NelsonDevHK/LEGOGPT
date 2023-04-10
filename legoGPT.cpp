@@ -77,7 +77,7 @@ void LegoGPT::LoadFilterModule(FilterModule &input){
     filterArray.insert(&input);
 }
 void LegoGPT::LoadHandlerModule(HandlerModule &input){
-    //handlerMap.insert(input.getTopic(),&input);
+    handlerMap.insert(input.getTopic(),&input);
 }
 
 void LegoGPT::clear(){

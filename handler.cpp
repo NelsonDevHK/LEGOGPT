@@ -29,11 +29,9 @@ string HandlerModule::answer(const string &question) const {
         tonedQuestion = toneFilter->translatePostData(filteredQuestion);
 
     // Step 3: Query the data for the answer
-    string answer;
-    if (inneranswer(tonedQuestion) == "")
+    string answer  = inneranswer(tonedQuestion);
+    if (answer == "")
         answer = "Sorry, I don't know";
-    else
-        answer = inneranswer(tonedQuestion);
 
     // Step 4: Pass answer to tone filter (if it exists)
     string tonedAnswer = answer;
@@ -122,7 +120,7 @@ void HandlerMap::clear()
     {
         for (int i = 0; i < arraySize; i++)
         {
-            delete handlerModules[i];
+            handlerModules[i]->~HandlerModule();
         }
         delete[] handlerModules;
         handlerModules = nullptr;
