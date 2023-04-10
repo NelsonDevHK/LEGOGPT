@@ -118,10 +118,6 @@ void HandlerMap::clear()
     }
     if (handlerModules != nullptr)
     {
-        for (int i = 0; i < arraySize; i++)
-        {
-            handlerModules[i]->~HandlerModule();
-        }
         delete[] handlerModules;
         handlerModules = nullptr;
     }

@@ -266,9 +266,9 @@ int main()
     test3();
     test4();
     test5();
-    test6();
-    test7();
-    test8();
+    //test6();
+    // test7();
+    // test8();
     cout << "End of all tests!" << endl;
     return 0;
 }

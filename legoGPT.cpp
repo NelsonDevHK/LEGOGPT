@@ -75,12 +75,17 @@ LegoGPT::~LegoGPT(){
 }
 void LegoGPT::LoadFilterModule(FilterModule &input){
     filterArray.insert(&input);
+    if(input.getType() == language)
+        languages.insert(input.getName());
 }
 void LegoGPT::LoadHandlerModule(HandlerModule &input){
     handlerMap.insert(input.getTopic(),&input);
+    topics.insert(input.getTopic());
 }
 
 void LegoGPT::clear(){
     handlerMap.clear();
     filterArray.clear();
+    topics.clear();
+    languages.clear();
 }
