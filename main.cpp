@@ -123,7 +123,6 @@ void test6()
     FilterHandlerModule humor("humor FilterHandlerModule", tone, "humor");
     humor.trainPostData("3 + 5 = 8", "I don't know what is 3 + 5, but I know 3 + 5 = 5 + 3. Because Integers under Addition form an Abelian Group.");
     humor.trainData("Tell me a joke.", "- Two strings walk into a bar. The bartender says, \"So what'll it be?\" The first string says, \"I think I\'ll have a beer^CjfdLk jk3s d#f67howe%^U r89nvy~~owmc63^Dz x.xvcu\" \"Please excuse my friend,\" the second string says, \"He isn\'t null-terminated.\" ");
-
     legoGPT.LoadHandlerModule(mathHandler);
     legoGPT.LoadHandlerModule(humor);
     legoGPT.LoadFilterModule(martian);
@@ -261,12 +260,12 @@ void test8()
 int main()
 {
     // You are suggested to comment out the tests you haven't implemented and test the cases one by one.
-    test1();
-    test2();
-    test3();
-    test4();
-    test5();
-    //test6();
+    // test1();
+    // test2();
+    // test3();
+    // test4();
+    // test5();
+    test6();
     // test7();
     // test8();
     cout << "End of all tests!" << endl;

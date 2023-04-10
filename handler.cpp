@@ -20,13 +20,19 @@ void HandlerModule::trainData(const string &question, const string &answer)
 string HandlerModule::answer(const string &question) const {
     // Step 1: Pass question to language filter (if it exists)
     string filteredQuestion = question;
-    if (languageFilter != nullptr)
+    if (languageFilter != nullptr){
         filteredQuestion = languageFilter->translatePreData(filteredQuestion);
+        if(filteredQuestion ==  "")
+            filteredQuestion = question;
+    }
 
     // Step 2: Pass "translated" question to tone filter (if it exists)
     string tonedQuestion = filteredQuestion;
-    if (toneFilter != nullptr) 
-        tonedQuestion = toneFilter->translatePostData(filteredQuestion);
+    if (toneFilter != nullptr){ // [BUG]
+        tonedQuestion = toneFilter->translatePreData(filteredQuestion);
+        if(tonedQuestion ==  "")
+            tonedQuestion = filteredQuestion;
+    }
 
     // Step 3: Query the data for the answer
     string answer  = inneranswer(tonedQuestion);
@@ -35,13 +41,19 @@ string HandlerModule::answer(const string &question) const {
 
     // Step 4: Pass answer to tone filter (if it exists)
     string tonedAnswer = answer;
-    if (toneFilter != nullptr)
-        tonedAnswer = toneFilter->translatePreData(answer);
+    if (toneFilter != nullptr){
+        tonedAnswer = toneFilter->translatePostData(answer);
+            if(tonedAnswer ==  "")
+                tonedAnswer = answer;
+    }
 
-    // Step 5: Pass answer to language filter (if it exists)
+    //Step 5: Pass answer to language filter (if it exists)
     string filteredAnswer = tonedAnswer;
-    if (languageFilter != nullptr)
-        filteredAnswer = languageFilter->translatePostData(tonedAnswer);
+    if (languageFilter != nullptr){
+        filteredAnswer = languageFilter->translatePostData(tonedAnswer); // [BUG]
+            if(filteredAnswer ==  "")
+                filteredAnswer = tonedAnswer;
+    }
     return filteredAnswer;
 }
 
